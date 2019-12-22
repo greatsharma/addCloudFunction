@@ -1,25 +1,24 @@
-from _utils.concat import conc
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
 
-@app.route('/api/', methods=['GET'])
+@app.route('/api/num/', methods=['GET'])
 def add():
     try:
-        num1 = request.args.get('num1')
-        num2 = request.args.get('num2')
+        val1 = int(request.args.get('val1'))
+        val2 = int(request.args.get('val2'))
 
         response = {
-            'num1': num1,
-            'num2': num2,
-            'sum': conc(num1, num2)
+            'val1': val1,
+            'val2': val2,
+            'sum': val1+val2
         }
     except Exception:
         response = {
             'status': {
                 'code': 400,
-                'msg': 'Bad request! specify both numbers'
+                'msg': 'Bad request! specify both values'
             }
         }
 
