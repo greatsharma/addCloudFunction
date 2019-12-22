@@ -3,8 +3,6 @@ from flask import Flask, request, jsonify
 app = Flask(__name__)
 
 
-# @app.route('/<path:path>')
-# @app.route('/', defaults={'path': ''})
 @app.route('/api/', methods=['GET'])
 def add():
     try:
